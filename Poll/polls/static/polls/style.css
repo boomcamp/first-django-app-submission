@@ -1,0 +1,80 @@
+body {
+  background: url("images/Background2.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+li a {
+  color: white;
+  font-size: 20px;
+}
+
+li {
+  color: white;
+  margin-top: 10px;
+}
+
+h1 {
+  color: white;
+  margin-top: 50px;
+}
+
+label {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+ul {
+  margin-top: 30px;
+}
+
+input[type="submit"] {
+  background-color: #29b6f6;
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input:hover[type="submit"] {
+  background-color: #03a9f4;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid white;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+input:checked[type="radio"] {
+  border: 6px solid white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 40%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: white;
+}
