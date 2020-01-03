@@ -2,7 +2,7 @@
 
 ### Requirements.
 
-Fork this repository and complete `(1 - 7)` parts from [Django intro](https://docs.djangoproject.com/en/3.0/intro/) 
+Fork this repository and complete `(1 - 7)` parts from [Django website](https://docs.djangoproject.com/en/3.0/intro/) 
 
 
 ### Assessments and Grading rubrics.
