@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %} 
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"> 
+<br/><br/>
+<a class="btn btn-secondary btn-sm mb-3" href="{% url 'polls:index' %}">Back To Polls</a> 
+<div class="card mb-3" style="padding: 30px"> 
+		<p class="text-center" style="font-size: 20px; font-weight:bold; padding: 5px">{{ question.question_text }}</p>
+<ul class="list-group mb-5">
+	{% for choice in question.choice_set.all %}
+	<li class="list-group-item">
+		{{ choice.choice_text }}  <span class="badge badge-primary float-right">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span>
+	</li>
+	{% endfor %}
+</ul>
+ 
+
+<a class="btn btn-success" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+</div>
+{% endblock %}

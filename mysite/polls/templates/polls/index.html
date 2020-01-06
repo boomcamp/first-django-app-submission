@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %} 
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"> 
+<br/><br/> 
+  <h1 class="text-center mb-3">Question Polls</h1>
+  <br/> 
+  {% if latest_question_list %}
+    {% for question in latest_question_list %}
+      <div class="card mb-3">
+        <div class="card-body" style="display:flex; justify-content: space-between;">
+          <p class="lead">{{ question.question_text }}</p>
+          <div> 
+            <a  style="font-size: 13px;" href="{% url 'polls:detail' question.id %}" class="btn btn-primary btn-sm">Vote Now</a>
+            <a  style="font-size: 13px;" href="{% url 'polls:results' question.id %}" class="btn btn-secondary btn-sm">Results</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+  <p>No polls are available.</p>
+  {% endif %}
+{% endblock %}
