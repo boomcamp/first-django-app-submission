@@ -1,0 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<div class="box-1">
+    <img src="{% static 'polls/images/logo.jpeg' %}" height="50px"/>
+</div>
+<div class="inner-div">
+    <div style="width: 30%;">
+        <a href="{% url 'polls:index' %}"><button class="back-to-polls">Back to Polls</button></a>
+        <div style="text-align: center;">
+            <h1>{{ question.question_text }}</h1>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        </div>
+        <form action="{% url 'polls:vote' question.id %}" method="post">
+            {% csrf_token %}
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+            <br>
+            <input class="buttonsave blue" type="submit" value="Vote">
+        </form>
+    </div>
+</div>

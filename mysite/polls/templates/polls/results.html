@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<div class="box-1">
+    <img src="{% static 'polls/images/logo.jpeg' %}" height="50px"/>
+</div>
+<div class="inner-div">
+    <div style="width: 30%;">
+    <div style="text-align: center;">
+        <h1>{{ question.question_text }}</h1>
+    </div>
+    <table width="100%">
+    {% for choice in question.choice_set.all %}
+        <tr class="res-border">
+            <td>
+            <span>{{ choice.choice_text }}</span> 
+            <span style="float: right;"><button class="votes blue">{{ choice.votes }} vote{{ choice.votes|pluralize }}</button></span>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    <div style="margin-top: 30px;">
+        <a href="{% url 'polls:index' %}"><button class="back-to-polls">Back to Polls</button></a>
+        <a href="{% url 'polls:detail' question.id %}"><button class="back-to-polls">Vote again?</button></a>
+    </div>
+</div>
+</div>

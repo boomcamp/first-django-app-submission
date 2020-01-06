@@ -1,0 +1,23 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    
+{% if latest_question_list %}
+<div class="box-1">
+    <<img src="{% static 'polls/images/logo.jpeg' %}" height="50px"/>
+</div>
+<h1 style="display: flex; justify-content: center;">Poll Questions</h1>
+    <ul>
+    {% for question in latest_question_list %}
+        <div class="content-box">
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            <div>
+                <a href="{% url 'polls:detail' question.id %}"><button class="index-button blue"><b>Vote Now</b></button></a>
+                <a href="{% url 'polls:results' question.id %}"><button class="index-button gray"><b>Results</b></button></a>
+            </div>
+        </div>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
