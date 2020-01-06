@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'polls/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="main-cont">
+      <div class="blue-square-container">
+        <div class="navbar">
+          <li><a class="active" href="/">POLL</a></li>
+          <li><a class="active" href="{% url 'polls:index' %}" style="font-size: 16px">Back</a></li>
+        </div>
+        <ul>
+          <div class="polls" style="padding: 10px 20px">
+            <h2 style="color: black; margin-bottom: 15px">
+              {{ question.question_text }}
+            </h2>
+
+            {% if error_message %}
+            <p class="error" ><strong>{{ error_message }}</strong></p>
+            {% endif %}
+
+            <form action="{% url 'polls:vote' question.id %}" method="post">
+              {% csrf_token %} {% for choice in question.choice_set.all %}
+              <input
+                type="radio"
+                name="choice"
+                id="choice{{ forloop.counter }}"
+                value="{{ choice.id }}"
+              />
+              <label for="choice{{ forloop.counter }}" style="color: black">
+                {{ choice.choice_text }}
+              </label>
+              <br />
+              {% endfor %}
+              <input
+                type="submit"
+                value="Vote"
+                class="large blue button"
+                style="width: 100%; border-radius: 5px; margin: 7% 0 4% 0"
+              />
+            </form>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

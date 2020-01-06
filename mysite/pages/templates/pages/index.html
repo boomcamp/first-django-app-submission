@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'polls/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="blue-square-container bg">
+      <!-- <ul class="navbar">
+        <li><a class="active" href="/">POLL APP</a></li>
+      </ul> -->
+      <div class="main">
+
+      <h1 style="font-family: arial, helvetica, sans-serif; color: white; margin-top: 150px">Welcome to Poll-App</h1>
+      <h4 style="font-family: arial, helvetica, sans-serif; color: white; margin-top: -30px">(A Basic Poll Application)</h4>
+      <a href="{% url 'polls:index' %}">
+        <button class="large blue button" style="border-radius: 5px">View Polls</button>
+      </a>
+      </div>
+    </div>
+  </body>
+</html>

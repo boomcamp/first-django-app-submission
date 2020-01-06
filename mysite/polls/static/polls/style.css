@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+}
+.navbar {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4c4177;
+  background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);
+  font-family: arial, helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-end;
+}
+
+li a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.blue-square-container {
+  text-align: center;
+  border: 1px solid lightgray;
+  margin: 3% auto;
+  width: 35%;
+  font-size: 24px;
+  font-family: arial, helvetica, sans-serif;
+  padding-bottom: 2%;
+  border-radius: 5px;
+  /* background-color: #8989bb;
+  background-image: linear-gradient(315deg, #8989bb 0%, #a5a4cb 74%); */
+}
+
+.button.blue {
+  width: 28%;
+  font-size: 14px;
+  color: #fff;
+  height: 35px;
+  border-color: #4c4177;
+  background-color: #4c4177;
+  background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);
+}
+
+.button.blue:hover {
+  background-color: #70b9e8;
+}
+
+.button.blue:active {
+  background: #269ce9;
+}
+
+
+.polls {
+  text-align: left;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 3% 7% 3% 2%;
+  width: auto;
+  font-size: 24px;
+  font-family: arial, helvetica, sans-serif;
+  padding: 5%;
+  color: white;
+  background-color: #f8ceec;
+  background-image: linear-gradient(315deg, #f8ceec 0%, white 46%);
+  display: flex;
+  flex-direction: column;
+}
+
+.poll {
+  color: black;
+  text-decoration: none;
+}
+
+.sm-bottom {
+  margin-bottom: 20px;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.badge {
+  background-color: red;
+  color: white
+}
+
+.bg {
+  /* background-color: #f8ceec;
+  background-image: linear-gradient(315deg, #f8ceec 0%, white 34%); */
+  height: 60vh;  
+  background: url("images/bg.png") no-repeat;
+}
+
+.results {
+  text-align: left;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 3% 5% 3% -5%;
+  width: auto;
+  font-size: 24px;
+  font-family: arial, helvetica, sans-serif;
+  padding: 5%;
+  color: white;
+  background-color: #f8ceec;
+  background-image: linear-gradient(315deg, #f8ceec 0%, white 46%);
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-image {
+  background: url("images/poll-bg.jpg") no-repeat;
+  height: 35vh;
+}
+
+.main {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  flex-direction: column;
+}

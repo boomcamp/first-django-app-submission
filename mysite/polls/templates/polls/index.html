@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'polls/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="main-cont">
+      <div class="blue-square-container">
+        <div class="navbar">
+          <li><a class="active" href="/">Polls</a></li>
+          <li><a class="active" href="/" style="font-size: 16px">Back</a></li>
+        </div>
+        {% if latest_question_list %}
+        <ul>
+          {% for question in latest_question_list %}
+          <div class="polls">
+            <a
+              href="{% url 'polls:detail' question.id %}"
+              class="poll sm-bottom"
+            >
+              {{ question.question_text }}
+            </a>
+            <div>
+              <a href="{% url 'polls:detail' question.id %}" class="poll">
+                <button class="large blue button">
+                  Vote
+                </button>
+              </a>
+              <a href="{% url 'polls:results' question.id %}" class="poll">
+                <button class="large blue button">
+                  Results
+                </button>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

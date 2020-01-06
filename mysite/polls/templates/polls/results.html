@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'polls/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="main-cont">
+      <div class="blue-square-container">
+        <ul class="navbar">
+          <li><a class="active" href="/">Poll Result</a></li>
+          <li><a class="active" href="{% url 'polls:index' %}" style="font-size: 16px">Back</a></li>
+        </ul>
+        <ul>
+          <div class="polls" style="padding: 10px 20px">
+            
+            <h2 style="color: black; margin-bottom: 15px; margin-top: 10px">
+              {{ question.question_text }}
+            </h2>
+
+            <ol>
+                {% for choice in question.choice_set.all %}
+                    <li style="color: black; font-size: 20px">
+                        {{ choice.choice_text }} --- <span>{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+                    </li>
+                {% endfor %}
+                </ol>
+                <a href="{% url 'polls:detail' question.id %}" class="poll">
+                    <button class="large blue button" 
+                    style="width: 100%; border-radius: 5px; margin: 7% 0 4% 0">
+                      Vote again?
+                    </button>
+                 </a>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+
+
