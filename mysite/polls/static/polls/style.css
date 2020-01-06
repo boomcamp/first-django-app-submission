@@ -1,20 +1,11 @@
 body {
-  /* background: white url("images/background.gif") no-repeat; */
-  /* background: white url("images/backg2.gif") center center no-repeat; */
   background: white url("https://media.giphy.com/media/7y5EOZwTTncuQ/giphy.gif")
     center center no-repeat;
   background-size: 100% 100%;
 }
 
-/* .container {
-  height: 20%;
-  width: 80%;
-  margin: 25% 10% 10% 10%;
-} */
-
 .box {
   margin: 10% 15%;
-  /* padding: 100px 50px 10px 50px; */
   padding: 50px 50px;
   background-color: #060607;
   border: 1px solid black;
@@ -31,7 +22,6 @@ h1 {
 }
 
 ul.q {
-  /* list-style-type: square; */
   margin-left: 6em;
   margin-top: 20px;
   list-style-image: url("images/green_question_0.png");
@@ -50,7 +40,6 @@ li a {
 }
 
 li a:hover {
-  /* font-weight: bold; */
   color: #a7ec38;
 }
 
@@ -71,14 +60,12 @@ button {
 }
 
 .choices {
-  /* margin-left: 2.5em; */
   visibility: hidden;
 }
 
 #label {
   color: whitesmoke;
   font-size: 26px;
-  /* padding-left: 40px; */
 }
 
 .choices + label {
@@ -125,6 +112,5 @@ button {
 
 #voteNum {
   position: absolute;
-  /* left: 5em; */
   left: 55%;
 }
