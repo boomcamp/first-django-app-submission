@@ -1,9 +1,19 @@
-<h1>{{ question.question_text }}</h1>
+{% load static %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<div class="card">
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <h1 class="title">{{ question.question_text }}</h1>
+
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li class="option">{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    </br>
+    <a href="{% url 'polls:index' %}">Back to Home</a>
+
+</div>
