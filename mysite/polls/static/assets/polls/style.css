@@ -1,0 +1,41 @@
+li a {
+    color: green;
+}
+body {
+    background: lightcyan url("images/background.gif") no-repeat;
+}
+
+.django-image {
+    width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+ul {
+    display:table; 
+    margin:0 auto;
+    list-style-type: none;
+}
+
+h1, a, .vote {
+    /* margin: 0 auto; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    text-decoration: none;
+    font-size: 17x;
+    font-weight: 300px;
+    margin-top: 10px;
+}
+
+.quest {
+    text-decoration: none;
+    font-size: 19px;
+    color: black;
+}

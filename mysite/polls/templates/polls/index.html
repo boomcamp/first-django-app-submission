@@ -1,0 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'assets/polls/style.css' %}">
+
+{% if latest_question_list %}
+<img class="django-image" src="{% static "assets/img/example.png" %}" alt="My image">
+    <ul>
+    {% for question in latest_question_list %}
+        <!-- <li><a href="/polls/{{ question.id }}/">{{ question.questions_text }}</a></li> -->
+        <br /><li><a class="quest" href="{% url 'polls:detail' question.id %}">{{ question.questions_text }}</a></li><br />
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+
