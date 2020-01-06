@@ -2,8 +2,7 @@
 
 ### Requirements.
 
-Fork this repository and complete `(1 - 7)` parts from [Django website](https://docs.djangoproject.com/en/3.0/intro/) 
-
+Fork this repository and complete `(1 - 7)` parts from [Django website](https://docs.djangoproject.com/en/3.0/intro/)
 
 ### Assessments and Grading rubrics.
 
@@ -11,7 +10,7 @@ Fork this repository and complete `(1 - 7)` parts from [Django website](https://
 
 [Part 2](https://forms.gle/jG3CJMD45FhnjHnL9)
 
-[Part 3 to 4](https://forms.gle/p93n4Pu7EqY9coqa8) 
+[Part 3 to 4](https://forms.gle/p93n4Pu7EqY9coqa8)
 
 [Part 5](https://forms.gle/1WnPW5gBc7wG2A7g8)
 
@@ -19,10 +18,8 @@ Fork this repository and complete `(1 - 7)` parts from [Django website](https://
 
 [Part 7](https://forms.gle/dWP87aiuNo67YkTQ9)
 
-
 ### Short demonstration.
 
-Create `demonstration` folder and upload a short video of your work 
+Create `demonstration` folder and upload a short video of your work
 
-
-[Part 1 - 7](demonstration/yourlink).
+[Part 1 - 7](demonstration/emelyn-part1-7.mp4).
