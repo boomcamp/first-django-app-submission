@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/webdev/.local/share/virtualenvs/my-app-xdDCLp6z/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
