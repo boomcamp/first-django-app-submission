@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ question.question_text }}
+{% endblock%}
+
+{% block content %}
+
+<div class="row">
+    <h3 style="text-align: center">{{ question.question_text }}</h3>
+    <div style="text-align: center" class="col s6 offset-s3">
+        <canvas height="200" width="200" id="myChart">
+            <strong>No votes yet</strong>
+        </canvas>
+    </div>
+    <div style="text-align: center" class="col s6 offset-s3">
+        <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div style="text-align: center" class="col s6 offset-s3">
+        <a style="margin-bottom: 10px;" class="waves-effect waves-light btn blue lighten-2" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+        <a style="margin-bottom: 10px;" class="waves-effect waves-light btn red lighten-2" href="{% url 'polls:index'%}">Go back</a>
+    </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script type="text/javascript">
+$.ajax({
+    method: "GET",
+    url: '{% url "polls:vote_data" question.id %}',
+    success: function(data) {
+        console.log(data)
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: data.votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ]
+                }]
+            }
+        });
+    },
+    error: function(error_data) {
+        console.log(error_data)
+    }
+})
+</script>
+{% endblock %}
