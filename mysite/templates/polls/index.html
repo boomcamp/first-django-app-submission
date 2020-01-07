@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ question.question_text }}
+{% endblock%}
+
+{% block content %}
+{% if latest_question_list %}
+    <div class="row">
+        {% for question in latest_question_list %}
+            <div class="col s12 m6">
+                <div class="card light-blue lighten-5">
+                    <div class="card-content black-text">
+                    <span class="card-title">{{ question.question_text }}</span>
+                    <p>{{ question.pub_date }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn" href="{% url 'polls:detail' question.id %}">Visit</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock %}
