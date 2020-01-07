@@ -1,0 +1,46 @@
+body {
+    background: url("images/purple-background.jpg");
+    color: white;
+}
+
+nav {
+    background-color: blueviolet;
+}
+
+.navbar-brand{
+    color:white;
+    font-weight: bold;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.err_msg{
+    color: red
+}
+
+[type="radio"] + label:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.memories-back{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.card-body{
+    background-color: purple;
+    color: white;
+}
+
+.card {
+    border-color: blueviolet;
+}
