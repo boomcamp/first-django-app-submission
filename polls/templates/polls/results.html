@@ -1,0 +1,23 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Gelasio|Raleway&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div class="logo">
+    <div>
+        <img src='{% static "polls/images/logo_white.svg" %}' alt="logo">
+    </div>
+    <h1 class="title">The Survey Gull</h1>
+</div>
+
+
+<div class="questions" >
+    <h2>{{ question.question_text }}</h2>
+
+    <ul>
+    {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }} — {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    {% endfor %}
+    </ul>
+
+    <a class="btn" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+</div>
