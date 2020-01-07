@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<body>
+    <div class="img-div">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Brooklyn_Nine-Nine_Logo.png">
+    </div>
+    <div class="box">
+        <h2>Brooklyn 99 Polls</h2>
+        <p>Questions:</p>
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+                <li><h3><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></h3></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </div>
+</body>

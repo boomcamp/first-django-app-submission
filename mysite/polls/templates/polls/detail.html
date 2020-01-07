@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body class="details">
+    <!-- <div class="header">
+        
+    </div> -->
+    <div class="img-div">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Brooklyn_Nine-Nine_Logo.png">
+        </div>
+    <div class="box">
+        <a style="float: left;" href="/polls/"><button class="detail-back"><i class="fa fa-arrow-left"></i> BACK TO POLLS</button></a>
+        <br>
+        <br>
+        <h2>{{ question.question_text }}</h2>
+        {% if error_message %}<p style="color: red;"><strong>{{ error_message }}</strong></p s>{% endif %}
+
+        <form action="{% url 'polls:vote' question.id %}" method="post">
+            <div class="radio">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+        {% endfor %}
+        </div>
+        <br>
+        <br>
+        <input type="submit" value="VOTE">
+        </form>     
+    </div>
+</body>
