@@ -1,0 +1,31 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<div style="text-align: center;"><h1>{{ question.question_text }}</h1></div>
+<div style="display: flex; justify-content: center;">
+    <div style="background-color: #d96459; width: 40%; height: auto; display: flex; padding: 10px; justify-content: space-between;">
+        <div style="height: auto; background-color: #f2ae72; width:100%; padding: 10px;">
+            
+            <form action="{% url 'polls:vote' question.id %}" method="post">
+            {% csrf_token %}
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter}}" value="{{ choice.id }}">
+                <label for ="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                {% endfor %}
+                <br>
+                <div style="text-align: center;">
+                    <button class="index-button" type="submit" value="Vote">Vote</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div style="text-align: center;">
+    {% if error_message %}<p style="color: #ff0000;"><strong>{{ error_message }}</strong></p>{% endif %}
+</div>
+<a href="{% url 'polls:index'  %}"><button class="back-button">Back</button></a>
+<!-- <ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text}}</li>
+{% endfor %}
+</ul> -->

@@ -1,0 +1,21 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div style="text-align: center;"><h1>{{ question.question_text }}</h1></div>
+<div style="display: flex; justify-content: center;">
+    <div style="background-color: #d96459; width: 40%; height: auto; display: flex; padding: 10px; justify-content: space-between;">
+        <div style="height: auto; background-color: #f2ae72; width:100%; padding: 10px;">
+            
+        {% for choice in question.choice_set.all %}
+            <p>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</p>
+            {% endfor %}
+            
+            <div style="text-align: center;">
+            <a href="{% url 'polls:index'  %}"><button class="back-button">Back to Polls</button></a>
+            <a href="{% url 'polls:detail' question.id %}"> <button class="index-button">Vote again</button></a> 
+            </div>
+        </div>
+    </div>
+</div>
+
